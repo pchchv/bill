@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"os"
 
@@ -58,4 +59,16 @@ func creator(order *[]Item) (Bill, KitchenList) {
 	return bill, kitchenList
 }
 
-func main() {}
+func billFormater(bill Bill) []byte {
+	fb := fmt.Sprintf("%25v\n\n\n", getEnvValue("NAME"))
+	for _, item := range bill.list {
+		for i := 0; i < item.quantity; i++ {
+			fb += fmt.Sprintf("%-25v ...$%v\n", item.name+":", item.price)
+		}
+	}
+	fb += fmt.Sprintf("\n%-25v ...$%0.2f", "total:", bill.totalSum)
+	return []byte(fb)
+}
+
+func main() {
+}

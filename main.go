@@ -53,6 +53,8 @@ func creator(order *[]Item) (Bill, KitchenList) {
 	}
 	bill.totalQuantity = tq
 	bill.totalSum = ts
+	kitchenList.list = *order
+	kitchenList.totalQuantity = tq
 	return bill, kitchenList
 }
 

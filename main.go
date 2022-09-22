@@ -42,7 +42,7 @@ func getEnvValue(v string) string {
 	return value
 }
 
-func creator(order *[]Item) (Bill, KitchenList) {
+func creator(order *[]Item) ([]byte, []byte) {
 	var bill Bill
 	var kitchenList KitchenList
 	var tq int
@@ -56,7 +56,7 @@ func creator(order *[]Item) (Bill, KitchenList) {
 	bill.totalSum = ts
 	kitchenList.list = *order
 	kitchenList.totalQuantity = tq
-	return bill, kitchenList
+	return billFormater(bill), listFormater(kitchenList)
 }
 
 func billFormater(bill Bill) []byte {

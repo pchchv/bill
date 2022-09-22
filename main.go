@@ -44,6 +44,15 @@ func getEnvValue(v string) string {
 func creator(order *[]Item) (Bill, KitchenList) {
 	var bill Bill
 	var kitchenList KitchenList
+	var tq int
+	var ts float64
+	bill.list = *order
+	for _, i := range *order {
+		tq += i.quantity
+		ts += i.price * float64(i.quantity)
+	}
+	bill.totalQuantity = tq
+	bill.totalSum = ts
 	return bill, kitchenList
 }
 

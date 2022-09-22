@@ -70,5 +70,15 @@ func billFormater(bill Bill) []byte {
 	return []byte(fb)
 }
 
+func listFormater(list KitchenList) []byte {
+	fl := "\n"
+	for _, item := range list.list {
+		fl += fmt.Sprintf("%-25v ...%v\n", item.name+":", item.quantity)
+
+	}
+	fl += fmt.Sprintf("\n%-25v ...%v", "total:", list.totalQuantity)
+	return []byte(fl)
+}
+
 func main() {
 }

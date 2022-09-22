@@ -12,4 +12,10 @@ type Item struct {
 	quantity int
 }
 
+// List of ordered items for order picking
+type KitchenList struct {
+	list          []Item
+	totalQuantity int
+}
+
 func main() {}

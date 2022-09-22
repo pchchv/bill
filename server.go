@@ -14,6 +14,17 @@ func pingHandler(c echo.Context) error {
 	return c.String(http.StatusOK, message)
 }
 
+func postOrder(c echo.Context) error {
+	order := &[]Item{}
+	if err := c.Bind(&order); err != nil {
+		return err
+	}
+	// bill, kitchenList := creator(order)
+	// TODO: Implement sending an order to the kitchen
+	// TODO: Implement sending a bill
+	return c.NoContent(http.StatusOK)
+}
+
 // The declaration of all routes comes from it
 func routes(e *echo.Echo) {
 	e.GET("/", pingHandler)

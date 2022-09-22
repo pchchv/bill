@@ -41,4 +41,10 @@ func getEnvValue(v string) string {
 	return value
 }
 
+func creator(order *[]Item) (Bill, KitchenList) {
+	var bill Bill
+	var kitchenList KitchenList
+	return bill, kitchenList
+}
+
 func main() {}

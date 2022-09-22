@@ -1,2 +1,1 @@
-# bill
-Service creating two checks. For the kitchen and for the customer.
+# Service creating two checks. For the kitchen and for the customer.

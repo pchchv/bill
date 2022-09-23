@@ -19,10 +19,9 @@ func postOrder(c echo.Context) error {
 	if err := c.Bind(&order); err != nil {
 		return err
 	}
-	// bill, kitchenList := creator(order)
+	bill, _ := creator(order)
 	// TODO: Implement sending an order to the kitchen
-	// TODO: Implement sending a bill
-	return c.NoContent(http.StatusOK)
+	return c.Blob(http.StatusOK, "text/csv", bill)
 }
 
 // The declaration of all routes comes from it
